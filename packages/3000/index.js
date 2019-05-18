@@ -22,7 +22,6 @@ router.get('/', ctx => {
 });
 
 router.post('/make-payment', async ctx => {
-    console.log('>>>', ctx);
     ctx.status = 200;
     ctx.body = `beneficiary: ${ctx.request.body.to} cookie: ${ctx.request.header.cookie}`;
 });

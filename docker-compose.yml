@@ -37,3 +37,14 @@ services:
   #     - /app/node_modules
   #     - ./packages/3001:/app
   #
+  "xss":
+    container_name: xss
+    build:
+      network: host
+      context: ./packages/4000
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - /app/node_modules
+      - ./packages/4000:/app
