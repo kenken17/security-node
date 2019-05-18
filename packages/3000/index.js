@@ -9,6 +9,7 @@ app.use(bodyParser());
 app.use(router.routes());
 
 router.get('/', ctx => {
+    ctx.cookies.set('secret-cookie', 'some secret')
     ctx.body = `
         <form action="entry" method="POST">
             <label for="message">Enter a message</label>
@@ -19,7 +20,7 @@ router.get('/', ctx => {
 
 router.post('/entry', async ctx => {
     ctx.status = 200;
-    ctx.body = ctx.request.body.message;
+    ctx.body = `${ctx.request.body.message} cookie = ${ctx.request.header.cookie}`;
 });
 
 app.listen(3000, () => {
