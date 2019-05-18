@@ -1,8 +1,10 @@
-version: '3'
+version: '3.4'
 
 services:
-  "3000":
+  "csrf":
+    container_name: csrf
     build:
+      network: host
       context: ./packages/3000
       dockerfile: Dockerfile
     ports:
@@ -11,3 +13,27 @@ services:
       - /app/node_modules
       - ./packages/3000:/app
 
+  "csrf_on":
+    container_name: csrf_on
+    build:
+      network: host
+      context: ./packages/3002
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    volumes:
+      - /app/node_modules
+      - ./packages/3002:/app
+
+  # "csrf_attack":
+  #   container_name: csrf_attack
+  #   build:
+  #     network: host
+  #     context: ./packages/3001
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3001:3001"
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./packages/3001:/app
+  #
