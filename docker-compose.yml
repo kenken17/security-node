@@ -25,18 +25,6 @@ services:
       - /app/node_modules
       - ./packages/3002:/app
 
-  # "csrf_attack":
-  #   container_name: csrf_attack
-  #   build:
-  #     network: host
-  #     context: ./packages/3001
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3001:3001"
-  #   volumes:
-  #     - /app/node_modules
-  #     - ./packages/3001:/app
-  #
   "xss":
     container_name: xss
     build:

@@ -18,6 +18,10 @@ router.get('/', ctx => {
 });
 
 router.get('/query', ctx => {
+    ctx.set('Access-Control-Allow-Origin', '*');
+    ctx.set('Access-Control-Allow-Headers', '*');
+    ctx.set('Access-Control-Allow-Methods', '*');
+    ctx.set('X-XSS-Protection', '0');
     ctx.body = `
         <div>
             You are searching: ${ctx.request.query.search}
